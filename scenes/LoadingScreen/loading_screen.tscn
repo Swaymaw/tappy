@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bl147vqs4mqrd"]
+
+[ext_resource type="Script" uid="uid://jwjjhcooer8g" path="res://scenes/LoadingScreen/loading_screen.gd" id="1_fj8et"]
+[ext_resource type="Texture2D" uid="uid://hr7ncocwdu5i" path="res://assets/background/MainScreen.png" id="1_r1dww"]
+[ext_resource type="LabelSettings" uid="uid://i18g0bu6pvt4" path="res://resources/press_jump_white.tres" id="2_r1dww"]
+
+[node name="LoadingScreen" type="Control" unique_id=320153053]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fj8et")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1241872730]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r1dww")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2110517600]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_right = 169.0
+offset_bottom = 277.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 300
+
+[node name="Loading" type="Label" parent="MarginContainer" unique_id=523628916]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Loading..."
+label_settings = ExtResource("2_r1dww")

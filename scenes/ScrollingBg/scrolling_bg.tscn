@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dpn5m55iu8ytw"]
+
+[ext_resource type="Texture2D" uid="uid://0ib6ntu50l1u" path="res://assets/background/Parallax4.png" id="1_8we6x"]
+[ext_resource type="Texture2D" uid="uid://ds8jedewkd4q1" path="res://assets/background/Gradient (z -6).png" id="1_bbq5t"]
+[ext_resource type="Texture2D" uid="uid://caa6rhabvcv07" path="res://assets/background/Parallax5.png" id="1_cj344"]
+[ext_resource type="Texture2D" uid="uid://ckqcvckwhahi3" path="res://assets/background/Parallax2.png" id="1_lekoy"]
+[ext_resource type="Texture2D" uid="uid://b5l5n8kimkeni" path="res://assets/background/Parallax3.png" id="2_tmi3f"]
+[ext_resource type="Texture2D" uid="uid://bkn5hrkyb7fxj" path="res://assets/background/Parallax1.png" id="6_sseis"]
+[ext_resource type="Texture2D" uid="uid://bsxy5jauh8c0r" path="res://assets/background/Parallax0.png" id="7_uoqmp"]
+
+[node name="ScrollingBg" type="Node2D" unique_id=550652437]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=573403516]
+self_modulate = Color(1, 1, 1, 0.39215687)
+texture = ExtResource("1_bbq5t")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=859483802]
+repeat_size = Vector2(1072, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=410003718]
+position = Vector2(-1, 33)
+texture = ExtResource("1_cj344")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=188832850]
+scroll_offset = Vector2(0, -90)
+repeat_size = Vector2(1072, 0)
+autoscroll = Vector2(-30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=745152564]
+position = Vector2(1, 210)
+texture = ExtResource("1_8we6x")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=857422866]
+scroll_offset = Vector2(0, -90)
+repeat_size = Vector2(1072, 0)
+autoscroll = Vector2(-50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=1738337988]
+position = Vector2(0, 152)
+texture = ExtResource("2_tmi3f")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=910021824]
+scroll_offset = Vector2(0, -90)
+repeat_size = Vector2(1072, 0)
+autoscroll = Vector2(-70, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=5850373]
+position = Vector2(0, 130)
+texture = ExtResource("1_lekoy")
+centered = false
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1593660155]
+scroll_offset = Vector2(0, -90)
+repeat_size = Vector2(1072, 0)
+autoscroll = Vector2(-90, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=126194258]
+position = Vector2(0, 140)
+texture = ExtResource("6_sseis")
+centered = false
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1567140687]
+scroll_offset = Vector2(-9, -34)
+repeat_size = Vector2(1072, 0)
+autoscroll = Vector2(-150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D6" unique_id=472900835]
+z_index = 10
+position = Vector2(3, 697)
+texture = ExtResource("7_uoqmp")
+centered = false

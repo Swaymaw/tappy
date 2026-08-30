@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dms402y81minq"]
+
+[ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://scenes/Laser/laser.tscn" id="1_bq5pp"]
+[ext_resource type="Script" uid="uid://c565ts6mlrpbr" path="res://scenes/Pipes/pipes.gd" id="1_xjvwn"]
+[ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://scenes/Pipe/pipe.tscn" id="2_xjvwn"]
+[ext_resource type="AudioStream" uid="uid://bp821cq4mc67q" path="res://assets/audio/score.wav" id="4_5mb1y"]
+
+[node name="Pipes" type="Node2D" unique_id=1464611801]
+script = ExtResource("1_xjvwn")
+
+[node name="Laser" parent="." unique_id=377417762 instance=ExtResource("1_bq5pp")]
+
+[node name="Upper" parent="." unique_id=185527360 instance=ExtResource("2_xjvwn")]
+position = Vector2(0, -60)
+rotation = 3.1415927
+
+[node name="Lower" parent="." unique_id=1038084518 instance=ExtResource("2_xjvwn")]
+position = Vector2(-3, 60)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=557151515]
+position = Vector2(83, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=100681171]
+wait_time = 15.0
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=866531268]
+stream = ExtResource("4_5mb1y")
+
+[connection signal="body_entered" from="Laser" to="." method="_on_laser_body_entered" flags=6]
+[connection signal="body_entered" from="Upper" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Lower" to="." method="_on_pipe_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://vw3vbg4upywc"]
+
+[ext_resource type="Script" uid="uid://dbqwyiyqccuoc" path="res://scenes/Game/game.gd" id="1_bfxw3"]
+[ext_resource type="PackedScene" uid="uid://bu6g247xbjbdx" path="res://scenes/Tappy/tappy.tscn" id="2_jm17p"]
+[ext_resource type="PackedScene" uid="uid://dpn5m55iu8ytw" path="res://scenes/ScrollingBg/scrolling_bg.tscn" id="3_7dfdq"]
+[ext_resource type="PackedScene" uid="uid://dms402y81minq" path="res://scenes/Pipes/pipes.tscn" id="3_fc1p2"]
+[ext_resource type="PackedScene" uid="uid://bcowfqlji4or5" path="res://scenes/GameUi/game_ui.tscn" id="5_7dfdq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jm17p"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fc1p2"]
+normal = Vector2(0.03594797, -0.99935365)
+distance = 162.18289
+
+[node name="Game" type="Node" unique_id=1742526320]
+script = ExtResource("1_bfxw3")
+pipes_scene = ExtResource("3_fc1p2")
+
+[node name="ScrollingBg" parent="." unique_id=550652437 instance=ExtResource("3_7dfdq")]
+position = Vector2(0, -20)
+
+[node name="Tappy" parent="." unique_id=1706966115 instance=ExtResource("2_jm17p")]
+z_index = 10
+position = Vector2(58, 338)
+collision_layer = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2039868345]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=145100099]
+position = Vector2(236, 2)
+shape = SubResource("WorldBoundaryShape2D_jm17p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=316826257]
+position = Vector2(232, 852)
+shape = SubResource("WorldBoundaryShape2D_fc1p2")
+
+[node name="UpperSpawn" type="Marker2D" parent="." unique_id=1062431569]
+position = Vector2(580, 170)
+
+[node name="LowerSpawn" type="Marker2D" parent="." unique_id=1807980645]
+position = Vector2(580, 540)
+
+[node name="Timer" type="Timer" parent="." unique_id=394586984]
+wait_time = 1.2
+autostart = true
+
+[node name="PipesHolder" type="Node" parent="." unique_id=873556378]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=119647531]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=1444255631 instance=ExtResource("5_7dfdq")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
